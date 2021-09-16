@@ -10,7 +10,11 @@ public class Extractor {
     }
 
     public String run() {
-        return filterTag();
+        return filterAlphabetAndNumber(filterTag());
+    }
+
+    private String filterAlphabetAndNumber(String content) {
+        return content.replaceAll("[^0-9a-zA-Z]", "");
     }
 
     private String filterTag() {

@@ -31,4 +31,14 @@ class ExtractorTest {
         Assertions.assertFalse(actual.contains("!doctype html"));
     }
 
+    @Test
+    void HTML으로부터_추출한_내용은_영소문자와_숫자만_포함한다() throws HtmlCreationFailException {
+        String url = "http://company.wemakeprice.com/wmp/";
+        Html html = htmlFactory.create(url);
+        FilterType filterType = FilterType.TAG;
+        Extractor extractor = new Extractor(filterType, html);
+        String actual = extractor.run().trim();
+        Assertions.assertFalse(actual.contains("위메프"));
+    }
+
 }
