@@ -14,7 +14,7 @@
         <div class="card-header">[ 입력 ]</div>
         <div class="card-body text-dark">
             <form th:action="@{/extractors}"
-                  th:object="${form}"
+                  th:object="${inputForm}"
                   method="post">
                 <div class="row mb-3"
                      style="margin-left: 10px;margin-right: 10px;">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="row mb-3" style="margin-left: 10px; margin-right: 10px;">
-                    <label for="inputType" class="col-sm-2 col-form-label">Password</label>
+                    <label for="inputType" class="col-sm-2 col-form-label">Type</label>
                     <div class="col-sm-10">
                         <select class="form-select"
                                 aria-label="Default select example"
@@ -62,15 +62,20 @@
         <div class="card-header">[ 출력 ]</div>
         <div class="card-body text-dark">
             <div class="mb-3 row">
-                <label for="quotient" class="col-sm-2 col-form-label">몫</label>
-                <div class="col-sm-10">
-                    <input type="text" readonly class="form-control-plaintext" id="quotient">
+                <label for="quotient"
+                       class="col-sm-2 col-form-label">몫</label>
+                <div class="col-sm-10 col-form-label"
+                     id="quotient"
+                     th:if="${outputForm != null}"
+                     th:text="${outputForm.quotient}">
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="remainder" class="col-sm-2 col-form-label">나머지</label>
-                <div class="col-sm-10">
-                    <input type="text" readonly class="form-control-plaintext" id="remainder">
+                <label for="remainder"
+                       class="col-sm-2 col-form-label">나머지</label>
+                <div class="col-sm-10 col-form-label" id="remainder"
+                     th:if="${outputForm != null}"
+                     th:text="${outputForm.remainder}">
                 </div>
             </div>
         </div>
