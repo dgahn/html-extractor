@@ -1,6 +1,7 @@
 package me.dgahn.extractor;
 
 import me.dgahn.extractor.exception.HtmlCreationFailException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -10,9 +11,10 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 
-@Service
+@Component
 public class HtmlFactory {
-    public Html createHtml(String urlPath) throws HtmlCreationFailException {
+
+    public Html create(String urlPath) throws HtmlCreationFailException {
         StringBuilder builder = new StringBuilder();
 
         try {
