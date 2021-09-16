@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+<div class="container py-3" style="margin-top: 40px;">
+    <div class="card border-dark mb-3">
+        <div class="card-header">[ 입력 ]</div>
+        <div class="card-body text-dark">
+            <form>
+                <div class="row mb-3" style="margin-left: 10px; margin-right: 10px;">
+                    <label for="inputUrl" class="col-sm-2 col-form-label">URL</label>
+                    <div class="col-sm-10">
+                        <input type="url" class="form-control" id="inputUrl">
+                    </div>
+                </div>
+                <div class="row mb-3" style="margin-left: 10px; margin-right: 10px;">
+                    <label for="inputType" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" aria-label="Default select example" id="inputType">
+                            <option value="TAG" selected>HTML 태그 제외</option>
+                            <option value="NONE">Text 전체</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3" style="margin-left: 10px; margin-right: 10px;">
+                    <label for="bundleUnit" class="col-sm-2 col-form-label">출력 묶음 단위</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="bundleUnit">
+                    </div>
+                </div>
+                <div class="row mb-3 justify-content-center">
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-left: 10px;">출력</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="card border-dark mb-3">
+        <div class="card-header">[ 출력 ]</div>
+        <div class="card-body text-dark">
+            <div class="mb-3 row">
+                <label for="quotient" class="col-sm-2 col-form-label">몫</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="quotient">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="remainder" class="col-sm-2 col-form-label">나머지</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="remainder">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</body>
+</html>
