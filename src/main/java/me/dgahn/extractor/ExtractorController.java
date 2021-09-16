@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class ExtractorController {
 
     @PostMapping("/extractors")
-    public String extractor(
+    public String extract(
             @ModelAttribute("inputForm") ExtractorInputFormDto form,
             RedirectAttributes redirectAttributes
     ) {
