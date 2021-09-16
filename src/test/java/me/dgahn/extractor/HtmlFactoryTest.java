@@ -19,4 +19,26 @@ class HtmlFactoryTest {
         Assertions.assertTrue(html.getContent().trim().startsWith("<!doctype html>"));
     }
 
+    @Test
+    void test() {
+        String str = "abc" +
+                "asd" +
+                "asd" +
+                "asd" +
+                "asd" +
+                "asd" +
+                "asd" +
+                "asd" +
+                "asd" +
+                "111" +
+                "11";
+        StringBuilder sb = new StringBuilder();
+        int i = str.length() % 3;
+        sb.append(str, 0, str.length() / 3 * 3);
+        for (int j = 0; j < str.length() / 3; j++) {
+            sb.insert((1 + 3) * j + (3), "\n");
+        }
+        System.out.println(sb.toString());
+    }
+
 }
