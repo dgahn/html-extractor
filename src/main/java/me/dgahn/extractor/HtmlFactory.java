@@ -2,7 +2,6 @@ package me.dgahn.extractor;
 
 import me.dgahn.extractor.exception.HtmlCreationFailException;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +19,6 @@ public class HtmlFactory {
         try {
             BufferedReader buff = getHtmlBufferedReader(urlPath);
             htmlToString(builder, buff);
-
             return new Html(builder.toString());
         } catch (IOException e) {
             e.printStackTrace();
@@ -29,7 +27,7 @@ public class HtmlFactory {
     }
 
     private void htmlToString(StringBuilder builder, BufferedReader buff) throws IOException {
-        String pageContents = "";
+        String pageContents;
         while ((pageContents = buff.readLine()) != null) {
             builder.append(pageContents);
             builder.append("\r\n");

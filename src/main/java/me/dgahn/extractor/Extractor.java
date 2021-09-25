@@ -1,19 +1,17 @@
 package me.dgahn.extractor;
 
+import lombok.AllArgsConstructor;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.lang.Math.max;
 
+@AllArgsConstructor
 public class Extractor {
     private FilterType filterType;
     private Html html;
-
-    public Extractor(FilterType filterType, Html html) {
-        this.filterType = filterType;
-        this.html = html;
-    }
 
     public String run() {
         return sort(filterAlphabetAndNumber(filterTag()));

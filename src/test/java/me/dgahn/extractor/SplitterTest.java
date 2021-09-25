@@ -19,7 +19,6 @@ class SplitterTest {
         Assertions.assertEquals("c", splitter.getRemainder());
     }
 
-
     @Test
     void 묶음별_테스트_3() {
         Splitter splitter = new Splitter("aaabbbcc", 3);

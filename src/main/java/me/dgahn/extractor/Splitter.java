@@ -1,13 +1,11 @@
 package me.dgahn.extractor;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class Splitter {
     private String content;
     private int bundleUnit;
-
-    public Splitter(String content, int bundleUnit) {
-        this.content = content;
-        this.bundleUnit = bundleUnit;
-    }
 
     public String getQuotient() {
         int contentLength = content.length();
