@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <title>위메프 기업소개 </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <link rel="shortcut icon" href="/wmp/images/common/favicon.ico">
+    <link rel="stylesheet" href="/wmp/css/common/common.css?v=20210925144250" />
+    <link rel="stylesheet" href="/wmp/css/common/layout.css?v=20210925144250" />
+    <link rel="stylesheet" href="/wmp/css/pages/main.css?v=20210925144250" />
+    <link rel="stylesheet" href="/wmp/css/pages/sub.css?v=20210925144250"/>
+    <script type="text/javascript" src="/wmp/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/wmp/js/common.js"></script>
+    
+
+    <!-- <script type="text/javascript" src="../../js/guide.js"></script> -->
+</head>
+<script>
+    var CONTEXT_PATH ="/wmp";
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/wmp/js/recruit_html_append.js?v=20210925144250"></script>
+<!-- Header 영역 -->
+
+
+<header class="header_wrap">
+<div class="center_inner">
+	<h1 class="logo"><a href="/wmp/">위메프</a></h1>
+	<div class="gnb_wrap">
+		<nav id="gnb" class="gnb">
+			<ul class="depth_1">
+				<li class="active"><!-- 1차 QA - 활성화시 .active -->
+					<a href="javascript:void(0);" onclick="pageMoveNFocus('/about','keyvisual');">위메프소개</a><!-- 활성화시 .on -->
+					<ul class="depth_2">
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/about','main_vision');">핵심가치</a></li>
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/about','main_history');">주요연혁</a></li>
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/about','main_csr');">사회공헌</a></li>
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/about','main_introduction');">회사소개서</a></li>
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/about','main_contact');">오시는길</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="" href="javascript:void(0);" onclick="pageMoveNFocus('/service','');" >서비스</a>
+					<ul class="depth_2">
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/service','major_service');">주요 서비스</a></li>
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/service','partner');">파트너 서비스</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="" href="javascript:void(0);" onclick="pageMoveNFocus('/brand','');">브랜드</a>
+					<ul class="depth_2">
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/brand','brand_ci');">CI</a></li>
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/brand','brand_font');">위메프체</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="" href="javascript:void(0);" onclick="pageMoveNFocus('/ethic','');">윤리경영</a>
+					<ul class="depth_2">
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/ethic','ethic_cont');">윤리경영</a></li>
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/ethic','ethic_protect');">개인정보보호</a></li>
+						<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/ethic','ethic_knowledge');">지식재산권 센터</a></li>
+					</ul>
+				</li>
+				<li class="last"><a class="" href="https://recruit.wemakeprice.com/" target="_blank">인재채용</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+</header>
+<form id="menuForm" method="post">
+	<input type="hidden" id="moveTo" name="moveTo">
+</form>
+<script>
+var type = "0";
+var page = "about";
+
+//type 1 : 서브페이지
+if(type=='1'){
+    $('header').addClass('fixed');
+}
+
+$("ul.depth_1").children("li").removeClass("active");
+
+var activeIdx = 0;
+
+if(page==='about'){
+    activeIdx = 0;
+}else if(page==='service'){
+    activeIdx = 1;
+}else if(page==='brand'){
+    activeIdx = 2;
+}else if(page==='ethic'){
+    activeIdx = 3;
+}
+
+$("ul.depth_1").children("li").eq(activeIdx).addClass("active");
+
+
+$(window).scroll(function () {
+	if (type!='1') {//type 1 : 서브페이지
+		if ($(document).scrollTop() > 1) {
+			$('header').addClass('fixed');
+		} else {
+			$('header').removeClass('fixed');
+		}
+	}
+});
+
+$('.depth_1 > li').not('.last').on('mouseenter', function (e) {
+    $(this).parents('.header_wrap').addClass('active');
+})
+$('.depth_1 > li').on('mouseleave', function (e) {
+    $(this).parents('.header_wrap').removeClass('active');
+})
+
+function pageMoveNFocus(url, moveTo){
+    var current = document.location.href;
+	var h = 0;
+    if('main_vision' === moveTo || 'main_history' === moveTo || 'main_csr' === moveTo){
+        h = -80;
+    }
+
+    if('main_contact' === moveTo){
+        h = -60;
+    }
+
+	if('main_introduction' === moveTo){
+        h = -200;
+	}
+
+    if(('major_service' === moveTo) || ('partner' === moveTo) ||
+		('brand_ci' === moveTo) ){
+        h = -100;
+    }
+    if('ethic_cont' === moveTo){
+        h = -120;
+    }
+    if((current.indexOf(url) != -1) && (moveTo != '')) {
+        scrollFocus(moveTo, h);
+    }
+    else {
+        $("#moveTo").val(moveTo);
+        $("#menuForm").attr('action', CONTEXT_PATH + url);
+        $("#menuForm").submit();
+    }
+
+}
+function scrollFocus(moveTo, h){
+	var offset = $('.'+moveTo).offset();
+	$('html').animate({scrollTop: offset.top + h}, 400);
+}
+</script>
+<!-- //Header 영역 -->
+<style>
+    .pop_recruit_font{background-color: #444; color: #edeef2; height: 23px; font-size: 12px; padding: 5px; cursor:pointer}
+    .pop_recruit_pointer{cursor:pointer}
+</style>
+<div id="container" class="container main">
+	<div class="container_inner">
+		<h2 class="blind">컨텐츠영역</h2>
+		<!-- 컨텐츠 영역 -->
+		<div class="contents_wrap">
+			<!-- keyvisual -->
+			<section class="keyvisual">
+				<div class="keytxt_wrap">
+					<ul class="keytxt to_top">
+						<li class="list_box fir">
+							<span>반값습니다.<br />놀라운 가격과 트렌드를 발견하는<br />즐거움이 있는 위메프입니다.</span>
+						</li>
+						<li class="list_box">
+							<span>더 좋은 가격을 쉽게 발견할 수 있는 방법은 무엇일까?<br />어떻게 하면 위메프에서 보내는 시간이 더 즐거울 수 있을까?</span>
+							<p>위메프는 2010년 “우리가 가격을 만든다”라는 생각으로 ‘위메이크프라이스(WEMAKEPRICE)’ 서비스를 시작했습니다.<br />
+								온라인 쇼핑 없는 일상을 생각할 수 없는 지금, 우리는 사용자를 위한 더 나은 쇼핑 경험, 더 나은 플랫폼에 대해 고심합니다.<br />
+								우리는 위메프 사용자들께 주변에 추천하고 싶을 정도의 즐거움을 드리기 위해 큐레이션과 플랫폼에 집중합니다.</p>
+						</li>
+					</ul>
+				</div>
+				<button type="button" onclick="pageMoveNFocus('/about','main_vision');"><span class="blind">다음</span></button>
+			</section>
+			<!-- //keyvisual -->
+
+			<!-- 비전 -->
+			<section class="main_vision">
+				<div class="center_inner">
+					<span class="side_label visual">CORE VALUES</span>
+					<h3 class="title">핵심가치</h3>
+					<div class="con_side"><!-- 액션 클래스 .to_{direction} -->
+						<ul>
+							<li>
+								<a href="javascript:openMainVisionModal('userDriven');">
+									<span>유저 중심 <em>User-driven</em></span>
+									<p>위메프 서비스의 진화 방향은<br />유저 입장에서 결정합니다.</p>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:openMainVisionModal('professionalTeam');">
+									<span>프로팀 <em>Professional team</em></span>
+									<p>우리는 팀워크로 결과를 만드는<br />프로팀입니다.</p>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:openMainVisionModal('startWithWhy');">
+									<span>본질적 문제 해결 <em>Start with why</em></span>
+									<p>모든 문제(과제)에는 본질(why)이<br />있다는 데서 출발합니다.</p>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:openMainVisionModal('speedyChallenger');">
+									<span>속도와 도전 <em>Speedy challenger</em></span>
+									<p>기민하게 대응하거나<br />독보적으로 차별화하거나</p>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:openMainVisionModal('DecisionWithIntegrity');">
+									<span>투명성 <em>Decision with integrity</em></span>
+									<p>볼펜 하나도 허투루 사용하지 않을 정도의<br />떳떳함이 우리의 기준입니다.</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<!-- //비전 -->
+
+
+			<!-- 주요연혁 -->
+			<section class="main_history">
+				<div class="center_inner">
+					<span class="side_label history">HISTORY</span>
+					<h3 class="title">2010년부터 지금까지, 위메프가 고객과 함께 걸어온 길입니다.</h3>
+					<ul class="time_line">
+						<li>
+							<h4>2010년</h4>
+							<ul>
+								<li><span>05</span>허민 現원더홀딩스 대표,<br />(주)나무인터넷 설립</li>
+								<li><span>10</span>소셜커머스 ‘위메프(위메이크프라이스)’<br />서비스 시작</li>
+							</ul>
+						</li>
+						<li>
+							<h4>2012년</h4>
+							<ul>
+								<li><span>04</span>박은상 공동 대표이사 취임<br />(2013년 7월 단독체제 전환)</li>
+							</ul>
+						</li>
+						<li>
+							<h4>2013년</h4>
+							<ul>
+								<li><span>02</span>(주)위메프로 사명 변경</li>
+								<li><span>11</span>본사 삼성동 이전</li>
+							</ul>
+						</li>
+						<li>
+							<h4>2014년</h4>
+							<ul>
+								<li><span>11</span>대한민국 판로지원 종합대전<br />안전행정부장관상 수상</li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="time_line">
+						<li>
+							<h4>2015년</h4>
+							<ul>
+								<li><span>08</span>(주)NXC로부터 1,000억원 투자유치</li>
+								<li><span>10</span>직매입 배송 서비스 ‘원더배송’ 시작</li>
+							</ul>
+						</li>
+
+						<li>
+							<h4>2016년</h4>
+							<ul>
+								<li><span>07</span>업계 최초 ‘위해상품판매차단시스템’ 도입</li>
+								<li><span>11</span>업계 최초 B2B 전용 ‘위메프 비즈몰’ 오픈</li>
+							</ul>
+						</li>
+						<li>
+							<h4>2017년</h4>
+							<ul>
+								<li><span>11</span>여성가족부 ‘가족친화인증기업’ 선정</li>
+								<li><span>12</span>‘2017 한국유통대상’ 대통령표창 단독 수상</li>
+							</ul>
+						</li>
+						<li>
+							<h4>2018년</h4>
+							<ul>
+								<li><span>06</span>주요기업 중 최초 포괄임금제 폐지</li>
+								<li><span>07</span>월간거래액 사상 첫 5,000억원 돌파</li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="time_line">
+						<li>
+							<h4>2019년</h4>
+							<ul>
+								<li><span>08</span>PG업체 페이플레이스 인수합병 및<br />통신판매중개업자 전환</li>
+								<li><span>09</span>(주)넥슨코리아로부터 2,500억원 투자유치</li>
+								<li><span>12</span>IMM인베스트먼트로부터 1,200억원 투자유치</li>
+							</ul>
+						</li>
+						<li>
+							<h4>2020년</h4>
+							<ul>
+								<li><span>10</span>위메프 서비스 10주년</li>
+							</ul>
+						</li>
+						<li class="now">
+							<h4>2021년</h4>
+							<ul>
+								<li><span>02</span>하송 대표이사 취임</li>
+								<li><span>04</span>업계 최조 2.9% 정률 수수료 도입</li>
+								<li><span>06</span>무료 멤버십 ‘VIP클럽’ 론칭</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!-- //주요연혁 -->
+
+			<!-- 사회공헌 -->
+			<section class="main_csr">
+				<div class="center_inner">
+					<span class="side_label csr">csr</span>
+					<h3 class="title">쇼핑으로 고객이 쉽게 참여하는 즐거운 나눔 문화를 만듭니다.</h3>
+					<p class="txt">쇼핑의 선순환을 위해 2014년 6월부터 아름다운가게와 파트너 협약을 맺고 정기적으로 리퍼상품(Refurbish)을 기증하고 있습니다.<br />
+						위메프 리퍼데이 바자회와 아름다운가게 위메프 특별전 등에서 리퍼상품을 재판매하고, 수익금은 도움이 필요한 이웃과 지역사회에서 사용합니다.</p>
+					<ul class="csr_list">
+						<li class="fr">
+							<h4>누적 기증 횟수</h4>
+							<p>57회</p>
+							<span>2021. 07</span>
+						</li>
+						<li class="se">
+							<h4>누적 기증 물품 수</h4>
+							<p>84,053개</p>
+							<span>2021. 07</span>
+						</li>
+						<li class="th">
+							<h4>누적 기증 물품 소비자가격</h4>
+							<p>27억원</p>
+							<span>2021. 07</span>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!-- //사회공헌 -->
+
+			<!-- 회사소개서 -->
+			<section class="main_introduction">
+				<div class="center_inner">
+					<span>위메프에 대해 더 자세히 알고 싶다면 <br />회사소개서를 다운로드 받으세요.</span>
+					<div class="btn_wrap">
+						<button class="btn st1" type="button" onclick="window.open('/wmp/download/WEMAKEPRICE_Company_Introduction.pdf')" >회사소개서 다운로드</button>
+					</div>
+				</div>
+			</section>
+			<!-- //회사소개서 -->
+
+			<!-- 오시는길 -->
+			<section id="contact" class="main_contact">
+				<div class="center_inner">
+					<span class="side_label contact">contact</span>
+					<h3 class="title">오시는길</h3>
+					<div class="map_wrap">
+						<!-- * 카카오맵  -->
+						<!--
+						<div id="daumRoughmapContainer1600606155396" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+						<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+						<script charset="UTF-8">
+                            new daum.roughmap.Lander({
+                                "timestamp" : "1600606155396",
+                                "key" : "225bd",
+                                "mapWidth" : "1200",
+                                "mapHeight" : "616"
+                            }).render();
+						</script>
+						-->
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.9244336962092!2d127.06133965129868!3d37.50970037970947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca4405271324d%3A0x33c9e40f43568c83!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsgrzshLEx64-ZIOyYgeuPmeuMgOuhnCA1MDI!5e0!3m2!1sko!2skr!4v1600652583623!5m2!1sko!2skr" width="1200" height="616" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+						
+					</div>
+					<div class="contact_info">
+						<ul>
+							<li>
+								<h4>위메프 본사</h4>
+								<p>서울특별시 강남구 영동대로 502 위메프빌딩 (06173)</p>
+							</li>
+							<li>
+								<h4>고객센터 1588-4763</h4>
+								<p>평일 9:00~18:00<br />주말/공휴일 10:00~17:00</p>
+								<a  href="http://www.wemakeprice.com/customer_center/proposal" target="_blank" class="btn st1">제안하기(VOC)</a>
+							</li>
+							<li>
+								<h4>파트너센터 1644-4796</h4>
+								<p>평일 9:00~18:00 (점심 12:00~13:00)<br />주말/공휴일 휴무</p>
+								<a  href="https://front.wemakeprice.com/guidebook/contactinfo" target="_blank" class="btn st1">입점·제휴문의</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<!-- //오시는길 -->
+		</div>
+		<!-- //컨텐츠 영역 -->
+	</div>
+</div><!-- // #container -->
+
+<!-- footer 영역 -->
+<div class="footer_wrap">
+	
+
+<div class="center_inner">
+	<h1 class="footer_logo"><a href="/wmp/"><span class="blind">위메프</span></a></h1>
+	<div class="foorer_menu">
+		<ul>
+			<li><a href="https://www.wemakeprice.com" target="_blank">위메프</a></li>
+			<li><a href="https://front.wemakeprice.com/cs/policies/terms" target="_blank">이용약관</a></li>
+			<li class="private_policy"><a href="http://recruit.wemakeprice.com/info/privatePolicy" target="_blank">개인정보처리방침</a></li>
+			<li><a href="https://front.wemakeprice.com/cs/policies/youth" target="_blank">청소년보호정책</a></li>
+			<li><a href="javascript:void(0);" onclick="pageMoveNFocus('/about','main_contact');">오시는길</a></li>
+		</ul>
+	</div>
+	<div class="sns_wrap">
+		<a class="blog" href="https://blog.naver.com/wemakepriceblog" target="_blank" title="blog">blog</a>
+		<a class="insta" href="https://www.instagram.com/wemakeprice_kr/" target="_blank" title="Instagram">Instagram</a>
+		<a class="fb" href="https://www.facebook.com/wemakeprice/" target="_blank" title="Facebook">Facebook</a>
+		<a class="youtube" href="https://www.youtube.com/channel/UCycODVGPKYpydxbZ-VdQlcA" target="_blank" title="YouTube">YouTube</a>
+	</div>
+	<p>
+		(주)위메프(대표이사 : 하송) | 주소 : 서울특별시 강남구 영동대로 502 위메프빌딩 (06173)<br />
+		사업자등록번호 : 566-87-01096 | 통신판매업신고번호 : 제 2019 서울 강남 03501호 | 관광사업등록번호 : 제2010-000024호<br />
+		고객센터 : 1588-4763 | 여행·레저/공연티켓/E쿠폰·지역 : 1661-4764 | 파트너센터 : 1644-4796<br />
+		위메프는 주민번호를 수집하지 않습니다. COPYRIGHT © WEMAKEPRICE INC. ALL RIGHT RESERVED
+	</p>
+</div>
+</div>
+
+<!-- Modal -->
+<div id="modal"></div>
+
+
+
+<!-- //footer 영역 -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+
+<script>
+    var moveTo ="";
+
+    var h = 0;
+    if('main_vision' === moveTo || 'main_history' === moveTo || 'main_csr' === moveTo){
+        h = -80;
+    }
+    if('main_contact' === moveTo){
+        h = -60;
+    }
+    if('main_introduction' === moveTo){
+        h = -200;
+    }
+
+    if(moveTo != ''){
+        scrollFocus(moveTo, h);
+	}
+
+    /* 1 */
+    $(window).scroll( function(){
+        var main_vision_div = $(".main_vision").find("div.con_side");
+        var main_history_h3 = $(".main_history").find("h3");
+        var main_history_ul = $(".main_history").find("ul");
+
+        $('.main_vision').each( function(i){
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_object / 1.5) {
+                if (main_vision_div.attr("class") != 'to_left') {
+                    main_vision_div.addClass('to_left');
+                }
+            }
+        });
+
+        $('.main_history').each( function(i){
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if( bottom_of_window > bottom_of_object/1.2 ){
+
+                if(main_history_h3.attr("class").indexOf('to_left') == -1){
+                    main_history_h3.addClass('to_left');
+                }
+                if(main_history_ul.attr("class").indexOf('to_left') == -1){
+                    main_history_ul.addClass('to_left');
+                }
+            }
+        });
+    });
+
+    var swiper = new Swiper('.keytxt_wrap', {
+        wrapperClass: 'keytxt',
+        slideClass: 'list_box',
+        effect: 'fade',
+        slidesPerView: 'auto',
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+		on: {
+			slideChange: function () { //슬라이드 변경시 액션클래스 삽입
+				$('.keytxt').addClass('to_top');
+			},
+			slideChangeTransitionEnd: function(){ //슬라이드 완료뒤 4초후 액션클래스 삭제
+				setTimeout(function () {
+					$('.keytxt').removeClass('to_top');
+				}, 4000);
+			}
+		}
+    });
+
+	/** 핵심가치 모달 */
+	function openMainVisionModal(visionName){
+		$.ajax({
+			async : false,
+			type : "get",
+			url : "mainVision/" + visionName +".html",
+			dataType : "html",
+			cache: false,
+			success:function(data){
+				if(data != null && data != undefined){
+					$("#modal").html(data);
+					$("body").addClass("overflow");
+					$("#modal").fadeIn();
+				}
+			}
+		});
+	}
+	function closeMainVisionModal() {
+		$("#modal").fadeOut();
+	}
+</script>
+
+
+
+<script src="/wmp/js/common.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+  ga('create', 'UA-18774526-12', 'wemakeprice.com');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+ 
+</script>
+</body>
+</html>
+
